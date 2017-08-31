@@ -98,6 +98,7 @@
         <module>to.etc.domui.legacy</module>
         <module>to.etc.domui.formbuilder</module>
         <module>to.etc.domui.selenium</module>
+        <module>testing</module>
         <module>to.etc.domui.demo</module>
         <module>to.etc.dbcompare</module>
         <module>archetypes</module>

@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>to.etc.domui</groupId>
+        <artifactId>domui-testing</artifactId>
+        <version>1.2-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>domui-javaocr</artifactId>
+    <packaging>pom</packaging>
+    <name>domui :: testing :: javaocr</name>
+    <description>JavaOCR - pure java image processing and OCR</description>
+    <version>1.2-SNAPSHOT</version>
+    <url>http://www.sourceforge.net/projects/javaocr/</url>
+
+    <modules>
+        <module>core</module>
+        <module>plugins</module>
+    </modules>
+</project>
