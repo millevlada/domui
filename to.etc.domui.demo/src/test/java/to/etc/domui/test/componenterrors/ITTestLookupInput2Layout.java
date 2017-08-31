@@ -7,7 +7,12 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import to.etc.domui.webdriver.core.AbstractWebDriverTest;
+import to.etc.domui.webdriver.core.ScreenInspector;
 import to.etc.domuidemo.pages.test.componenterrors.LookupInput2TestPage;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 /**
  * @author <a href="mailto:jal@etc.to">Frits Jalvingh</a>
@@ -73,6 +78,21 @@ public class ITTestLookupInput2Layout extends AbstractWebDriverTest {
 
 
 		Assert.assertEquals("Label and control for TWO must be on same Y", label.getLocation().getY(), two.getLocation().getY());
+	}
+
+
+	@Test
+	public void labelOCRTest() throws Exception {
+		wd().cmd().type("hello world").on(By.cssSelector("*[testid='two'] input"));
+		Thread.sleep(1000);
+
+		WebElement two = wd().getElement("two");
+		ScreenInspector in = wd().screenInspector();
+		if(in == null)
+			return;
+
+		BufferedImage bufferedImage = in.elementScreenshot(two);
+		ImageIO.write(bufferedImage, "png", new File("/tmp/input-1.png"));
 	}
 
 }

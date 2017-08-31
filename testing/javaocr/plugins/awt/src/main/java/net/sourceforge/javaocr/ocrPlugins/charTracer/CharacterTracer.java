@@ -17,19 +17,17 @@
  */
 package net.sourceforge.javaocr.ocrPlugins.charTracer;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Image;
+import net.sourceforge.javaocr.scanner.DocumentScanner;
+import net.sourceforge.javaocr.scanner.DocumentScannerListenerAdaptor;
+import net.sourceforge.javaocr.scanner.PixelImage;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import net.sourceforge.javaocr.scanner.DocumentScanner;
-import net.sourceforge.javaocr.scanner.DocumentScannerListenerAdaptor;
-import net.sourceforge.javaocr.scanner.PixelImage;
 
 /**
  * Saves all the characters in an image to an output directory individually.
@@ -94,4 +92,15 @@ public class CharacterTracer extends DocumentScannerListenerAdaptor
         }
     }
     private static final Logger LOG = Logger.getLogger(CharacterTracer.class.getName());
+
+    static public void main(String[] args) throws Exception {
+        File src = new File(args[0]);
+
+        CharacterTracer tr = new CharacterTracer();
+        BufferedImage tracedImage = tr.getTracedImage(src);
+
+        ImageIO.write(tracedImage, "png", new File("/tmp/trace.out.png"));
+    }
+
+
 }
